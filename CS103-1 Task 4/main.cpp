@@ -32,12 +32,11 @@ string word[14] = {
 // Functions
 // ----------
 void game() {
-    srand (time(NULL));
-    string randomWord = word[rand() % 14];
+    // string blank = word[rand() % 14];
 
-    cout << "Hangman\n--------" << endl;
+    // cout << "Hangman\n--------" << endl;
 
-    cout << randomWord << endl;
+    // cout << randomWord << endl;
 }
 
 void drawLines() {}
@@ -53,14 +52,10 @@ void drawInvertedman() {}
 // ----------
 int main() {
     // Variables
-
-
-
-
+    srand (time(0));
     int i;
+    string randomWord = word[rand() % 14];
 
-    for(i=0; i<10; i++) {
-        cout << word[rand() % 14] << endl;
-    }
+    cout << randomWord << endl;
 
 }
