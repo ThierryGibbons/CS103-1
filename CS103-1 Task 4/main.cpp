@@ -31,31 +31,67 @@ string word[14] = {
 // ----------
 // Functions
 // ----------
-void game() {
-    // string blank = word[rand() % 14];
 
-    // cout << "Hangman\n--------" << endl;
-
-    // cout << randomWord << endl;
+void drawLine() {
+    int i;
+    for(i=0; i<66; i++)
+        cout << "-";
+    cout << endl;
 }
 
-void drawLines() {}
+void drawHangman() {
+    cout << "   ____\n  |    |\n  |    O\n  |   \\|/\n  |    |\n  |   / \\ " << "\n  |\n  |\n-----" << endl;
+}
 
-void drawHangman() {}
+void drawInvertedman() {
+    cout << "   ____\n  |    |\n  |   /|\\\n  |    |\n  |   /|\\\n  |    O" << "\n  |\n  |\n-----" << endl;
+}
 
-void drawWalkman() {}
+void drawWalkman() {
+    cout << "       O\n      \\|/\n       |\n      / \\" << endl;
+}
 
-void drawInvertedman() {}
 
+void game() {
+    bool gameBool = true;
+    char guess;
+    int numGuess = 0;
+    srand (time(0));
+    string randomWord = word[rand() % 14];
+
+    // random letter part
+    int x = rand() % randomWord.length();
+    char y = randomWord[x];
+    randomWord[x] = '_';
+
+    while (gameBool) {
+        cout << "Guess the random letter in " << randomWord << " : ";
+        cin >> guess;
+        if(guess == y) {
+            cout << "\nYour guess is correct" << endl;
+            drawWalkman();
+            gameBool = false;
+            break;
+        } else if (numGuess < 2) {
+            cout << "Sorry, try again" << endl;
+            numGuess++;
+        } else {
+            cout << "\n   Your guess is wrong" << endl;
+            drawInvertedman();
+            gameBool = false;
+            break;
+        }
+    }
+}
 // ----------
 // Main
 // ----------
 int main() {
-    // Variables
-    srand (time(0));
-    int i;
-    string randomWord = word[rand() % 14];
+    cout << "Welcome to play hangman. This game is to check your spelling skill" << endl;
+    drawLine();
+    drawHangman();
+    game();
 
-    cout << randomWord << endl;
+    return 0;
 
 }
