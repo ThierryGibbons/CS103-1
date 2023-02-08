@@ -106,6 +106,7 @@ int main() {
                         square();
                         break;
                 }
+
                 cout << "Guess the shape:\na. Rectangle\nb. Triangle\nc. Square\nd. None of the above" << endl;
                 cin >> guess;
 
@@ -134,7 +135,7 @@ int main() {
                 } else {
                     cout << "Incorrect." << endl;
                 }
-
+                break;
             }
             case 2: //  Exit
                 cout << "Exiting Program" << endl;
