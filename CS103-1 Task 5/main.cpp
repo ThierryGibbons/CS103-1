@@ -93,23 +93,25 @@ int main() {
                 /*
                 Play option should call any one of the shapes randomly and display it.
                 */
-                int randomShape = rand() % 3 + 1;   // Generate a random number between 1 and 3
+                int randomShape = rand() % 3 + 1;   // Generate a random number between 1 and 3 to select a shape.
 
                 switch (randomShape) {
                     case 1:
-                        rectangle(5, 15);
+                        rectangle(5, 15);   // call rectangle function
                         break;
                     case 2:
-                        triangle();
+                        triangle();         // call triangle function
                         break;
                     case 3:
-                        square();
+                        square();           // call square function
                         break;
                 }
 
+                // Ask the user to guess the shape.
                 cout << "Guess the shape:\na. Rectangle\nb. Triangle\nc. Square\nd. None of the above" << endl;
                 cin >> guess;
 
+                // Check if the guess is correct
                 bool correct = false;
                 switch (randomShape) {
                     case 1:
@@ -139,7 +141,7 @@ int main() {
             }
             case 2: //  Exit
                 cout << "Exiting Program" << endl;
-                // return 0;
+                return 0;
             default:
                 cout << "Invalid selection. Please try again." << endl;
                 break;
