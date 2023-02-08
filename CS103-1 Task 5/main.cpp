@@ -138,12 +138,11 @@ int main() {
             }
             case 2: //  Exit
                 cout << "Exiting Program" << endl;
-                return 0;
+                // return 0;
             default:
                 cout << "Invalid selection. Please try again." << endl;
                 break;
         }
-        break;
     }
 
 
