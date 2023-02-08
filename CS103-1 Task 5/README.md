@@ -17,27 +17,10 @@
 
 ### Design
 
-#### Difficulty Levels
-
-- Easy:
-  - The shape will be displayed on screen alongside the number of sides.
-  - The player must identify the shape from a selection of string options.
-- Medium:
-  - The shape will be displayed on screen.
-  - The player must identify the shape from a selection of string options.
-- Hard:
-  - The name of the shape will be displayed on the screen. Below some random shapes will be displayed alongside a letter to select the option.
-  - The player must identify the shape from one of the shapes displayed below the name of the shape.
-
 #### Scoring
 
-- The game's score should be constantly displayed and adjusted accordingly with each guess.
-- Every correct guess will add one point to the score.
-- At the start of a new game, the score will be reset to 0.
-
-#### Number of rounds
-
-- The game will have 5 rounds for all levels of difficulty.
+- The game's score should be displayed every time the user gets back to the main menu.
+- Every correct guess will add ten points to the score.
 
 #### Error handling
 
