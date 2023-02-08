@@ -73,17 +73,19 @@ int calculateScore(int &score, bool point) {
 // Main
 // ----------
 int main() {
-    /*
-    Display Main Menu with Play, Final Score, and Exit.
-    */
-   cout << "chur" << endl;
-
     int score = 0;
-    int menuSelection;
+    char guess;
+
+    srand(time(0)); //  Seed the random number generator with the current time
+
     while (true) {
-        // main menu
+        /*
+        Display Main Menu with Play, Final Score, and Exit.
+        */
         cout << "Enter the number you would like to select" << endl;
         cout << "1) Play        Final Score: " << score << "\n2) Exit" << endl;
+
+        int menuSelection;
         cin >> menuSelection;
 
         switch (menuSelection) {
@@ -91,8 +93,8 @@ int main() {
                 /*
                 Play option should call any one of the shapes randomly and display it.
                 */
-                srand(time(0)); //  Seed the random number generator with the current time
                 int randomShape = rand() % 3 + 1;   // Generate a random number between 1 and 3
+
                 switch (randomShape) {
                     case 1:
                         rectangle(5, 15);
@@ -105,30 +107,34 @@ int main() {
                         break;
                 }
                 cout << "Guess the shape:\na. Rectangle\nb. Triangle\nc. Square\nd. None of the above" << endl;
-                char guess;
                 cin >> guess;
 
-                if (randomShape == 1 && guess == 'a') {
-                    cout << "Correct!" << endl;
-                    score = calculateScore(score, true);
-                } else if (randomShape == 2 && guess == 'b') {
-                    cout << "Correct!" << endl;
-                    score = calculateScore(score, true);
-                } else if (randomShape == 3 && guess == 'c') {
+                bool correct = false;
+                switch (randomShape) {
+                    case 1:
+                        if (guess == 'a') {
+                            correct = true;
+                        }
+                        break;
+                    case 2:
+                        if (guess == 'b') {
+                            correct = true;
+                        }
+                        break;
+                    case 3:
+                        if (guess == 'c') {
+                            correct = true;
+                        }
+                        break;
+                }
+
+                if (correct) {
                     cout << "Correct!" << endl;
                     score = calculateScore(score, true);
                 } else {
-                    cout << "Incorrect. The correct answer was ";
-                    if (randomShape == 1) {
-                        cout << 'a';
-                    } else if (randomShape == 2) {
-                        cout << 'b';
-                    } else {
-                        cout << 'c';
-                    }
-                    cout << "." << endl;
+                    cout << "Incorrect." << endl;
                 }
-                break;
+
             }
             case 2: //  Exit
                 cout << "Exiting Program" << endl;
